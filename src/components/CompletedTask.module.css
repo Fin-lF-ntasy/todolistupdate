@@ -1,0 +1,13 @@
+.completed {
+    width: 100%;
+}
+
+.completed h3 {
+    text-align: center;
+    
+}
+
+.completed ul {
+    height: 30vh;
+    overflow: scroll;
+}

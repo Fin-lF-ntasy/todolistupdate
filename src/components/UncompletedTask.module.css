@@ -1,0 +1,14 @@
+.uncompleted {
+    width: 100%;
+    
+}
+
+.uncompleted h3 {
+    text-align: center;
+    
+}
+
+.uncompleted ul {
+    height: 30vh;
+    overflow: scroll;
+}

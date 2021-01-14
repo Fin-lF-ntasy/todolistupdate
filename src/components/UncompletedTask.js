@@ -1,39 +1,29 @@
 import React from "react";
-import {useState} from 'react';
-import {StarFilled} from '@ant-design/icons';
+import TodoItem from './TodoItem';
+import styles from './UncompletedTask.module.css';
 
-function UncompletedTask({todo, changeFavorite, changeDone}) {
-  const [starStyle, setStarStyle] = useState({fontSize: '16px', color: '#d9d9d9'});
-  const changeStar = () => {
-    if (starStyle.color === '#d9d9d9') {
-      setStarStyle({fontSize: '16px', color: '#ffcc00'});
-    }
-    if (starStyle.color === '#ffcc00') {
-      setStarStyle({fontSize: '16px', color: '#d9d9d9'});
-    }
-  }
-
-  const appliedDone = () => {
-    changeDone(todo);
-  }
-  const appliedFavorite = () => {
-    changeStar();
-    changeFavorite(todo);
-  }
+function UncompletedTask({todoList, setNewtodo, setFavorite}) {
+  const renderUncompleted = () =>
+    todoList.filter(todo => todo.isDone === false).sort((a,b) => b.dateModify - a.dateModify).sort((a,b) => b.dateAdded - a.dateAdded).sort((a,b) => b.isFavorite - a.isFavorite).map(todo => 
+      <TodoItem 
+        name = {todo.name}
+        dateAdded = {todo.dateAdded}
+        dateModify = {todo.dateModify}
+        isDone = {todo.isDone}
+        isFavorite = {todo.isFavorite}
+        key = {todo.name}
+        setNewtodo = {setNewtodo}
+        setFavorite = {setFavorite}
+      />
+    );
 
   return (
-    <li>
-      <div className="wrapItem spacebetween">
-        <div>
-          <input type="checkbox" onClick = {() => appliedDone()}/>
-          <label>{todo}</label>
-        </div>
-        <span onClick = {() => appliedFavorite()}>
-          <StarFilled style = {starStyle}/>
-        </span>
-
-      </div>
-    </li>
+    <section className={styles.uncompleted}>
+      <h3>Task List</h3>
+      <ul>
+        {renderUncompleted()}
+      </ul>
+    </section>
   );
 }
 

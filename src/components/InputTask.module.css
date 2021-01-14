@@ -1,0 +1,33 @@
+
+  .heading h1 {
+    padding: 15px 30px;
+  }
+
+  .heading div {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 40px;
+  }
+  
+  .heading input {
+    border: 1px solid gray;
+    padding: 15px;
+    background: white;
+    align-items: center;
+    align-content: center;
+    border-radius: 5px;
+    flex: 0 0 75%;
+  }
+
+  .heading button {
+    background-color: white;
+    border-width: 1px;
+    border-radius: 5px;
+    box-shadow: none;
+    flex: 0 0 15%;
+    font-size: 16px;
+  }
+
+  .heading h1 {
+    text-align: center;
+  }
